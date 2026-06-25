@@ -1,0 +1,25 @@
+{
+  "name": "@meridian/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./adapters": "./src/adapters/index.ts",
+    "./queue": "./src/queue/index.ts"
+  },
+  "dependencies": {
+    "@meridian/db": "*",
+    "bullmq": "^5.34.10",
+    "compromise": "^14.14.4",
+    "franc-min": "^6.2.0",
+    "ioredis": "^5.4.2",
+    "openai": "^4.85.4",
+    "resend": "^4.1.2",
+    "rss-parser": "^3.13.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

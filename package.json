@@ -1,0 +1,19 @@
+{
+  "name": "meridian",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@meridian/web",
+    "worker": "npm run start --workspace=@meridian/worker",
+    "worker:dev": "npm run dev --workspace=@meridian/worker",
+    "build": "npm run build --workspaces --if-present",
+    "db:generate": "npm run generate --workspace=@meridian/db",
+    "db:migrate": "npm run migrate --workspace=@meridian/db",
+    "db:push": "npm run push --workspace=@meridian/db",
+    "lint": "npm run lint --workspace=@meridian/web"
+  }
+}

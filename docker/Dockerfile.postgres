@@ -1,0 +1,23 @@
+FROM postgres:16-bookworm
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    flex \
+    bison \
+    git \
+    postgresql-server-dev-16 \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# pgvector
+RUN git clone --branch v0.8.0 --depth 1 https://github.com/pgvector/pgvector.git /tmp/pgvector \
+    && cd /tmp/pgvector \
+    && make \
+    && make install \
+    && rm -rf /tmp/pgvector
+
+# Apache AGE
+RUN git clone --branch PG16/v1.6.0-rc0 --depth 1 https://github.com/apache/age.git /tmp/age \
+    && cd /tmp/age \
+    && make install \
+    && rm -rf /tmp/age
